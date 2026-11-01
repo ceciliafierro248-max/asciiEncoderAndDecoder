@@ -26,6 +26,26 @@ def decodeString(tupleVal):
         decodeStr = decodeStr + (item[0] * item[1])
     return decodeStr
 
+
+
+st.markdown(
+    """
+    <style>
+    [data-testid="stTextArea"] textarea {
+       color: #000000;
+    }
+
+    [data-testid="stTextArea"] textarea:disabled {
+        color: #000000;
+        -webkit-text-fill-color: #000000;
+        opacity: 1;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
+
 with st.sidebar:
     st.subheader("Welcome to the Ascii Image Encoder and Decoder")
     st.markdown("This app will allow you to encode ASCII images into a copy and paste string and view ASCII art when provided with decode string.")
@@ -47,7 +67,7 @@ if stringVal == '':
     print("Has not typed anything yet or the user just pressed enter.")
 else:
     print(encodeString(stringVal))
-    st.text_area("Result", value=encodeString(stringVal), disabled=True)
+    st.code(encodeString(stringVal), wrap_lines=True)
 
 
 st.subheader("Ascii Image Decoder", divider="yellow")
