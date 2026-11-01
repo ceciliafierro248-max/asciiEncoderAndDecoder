@@ -2,3 +2,5 @@
 base="dark"
 backgroundColor="#006199"
 secondaryBackgroundColor="#FFFFFF"
+codeBackgroundColor="#FFFFFF"
+codeTextColor="#000000"
