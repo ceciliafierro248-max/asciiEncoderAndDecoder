@@ -1,1 +1,46 @@
+name: Deploy Streamlit to GitHub Pages
+on:
+  push:
+    branches: [ main ] # Change to master if your default branch is named master
+  workflow_dispatch: # <-- Add this line to enable manual triggering
+  
 
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22' # Upgraded to 22 to meet stlite's engine requirements
+
+      - name: Convert Streamlit to Static HTML
+        run: |
+          # 1. Install the package locally
+          npm install @stlite/cli
+          
+          # 2. Create the target deployment directory
+          mkdir -p dist
+          
+          # 3. Use the correct subcommand format to export code.py to the dist folder
+          ./node_modules/.bin/stlite html . --entrypoint encodeDecodeStVersion.py -o dist/index.html
+          
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
