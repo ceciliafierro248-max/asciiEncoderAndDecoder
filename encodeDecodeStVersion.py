@@ -28,7 +28,7 @@ def decodeString(tupleVal):
 
 with st.sidebar:
     st.subheader("Welcome to the Ascii Image Encoder and Decoder")
-    st.markdown("This app will allow you to encode ascii images into a copy and past string and view ascii art when provided with decode string.")
+    st.markdown("This app will allow you to encode ASCII images into a copy and paste string and view ASCII art when provided with decode string.")
     st.markdown("")
     st.markdown("")
     st.markdown("This app was created by Cecilia F. as an extension of the Python Essentials Training LinkedIn Course")
@@ -40,7 +40,7 @@ with st.sidebar:
 
 
 st.subheader("Ascii Image Encoder", divider = 'yellow')
-stringVal = st.text_area("Paste your ascii image below!")
+stringVal = st.text_area("Paste your ASCII image below!")
 
 if stringVal == '':
     st.text("")
@@ -51,7 +51,7 @@ else:
 
 
 st.subheader("Ascii Image Decoder", divider="yellow")
-tupleVal = st.text_area("Paste your compressed ascii image string below!")
+tupleVal = st.text_area("Paste your compressed ASCII image string below!")
 
 if tupleVal == '':
     st.text("")
