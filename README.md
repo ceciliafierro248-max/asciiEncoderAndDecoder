@@ -6,5 +6,5 @@ This Streamlit app allows to user to encode ASCII images into a copy and paste s
 # Important Note
 Though this website was created with Steamlit deployment in mind, this website is currently only deployed on Github Pages. Please see link below.
 <br><br>
-Link → 
+Link → https://ceciliafierro248-max.github.io/asciiEncoderAndDecoder/
 
